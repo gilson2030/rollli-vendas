@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rolli - Sistema de Vendas</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Sistema Rolli - Estoque, Vendas e Financeiro</h1>
+  <nav>
+    <button onclick="showSection('produtos')">Produtos</button>
+    <button onclick="showSection('clientes')">Clientes</button>
+    <button onclick="showSection('vendas')">Vendas</button>
+    <button onclick="showSection('financeiro')">Financeiro</button>
+  </nav>
+  <section id="produtos">
+    <h2>Produtos</h2>
+    <form onsubmit="adicionarProduto(event)">
+      <input type="text" id="nomeProduto" placeholder="Nome do produto" required />
+      <input type="number" id="estoqueProduto" placeholder="Estoque" required />
+      <input type="number" id="precoProduto" placeholder="Preço" required />
+      <input type="text" id="imagemProduto" placeholder="URL da imagem" required />
+      <button type="submit">Salvar Produto</button>
+    </form>
+    <ul id="listaProdutos"></ul>
+  </section>
+  <section id="clientes" style="display:none">
+    <h2>Clientes</h2>
+    <form onsubmit="adicionarCliente(event)">
+      <input type="text" id="nomeCliente" placeholder="Nome do cliente" required />
+      <button type="submit">Cadastrar</button>
+    </form>
+    <ul id="listaClientes"></ul>
+  </section>
+  <section id="vendas" style="display:none">
+    <h2>Vendas</h2>
+    <form onsubmit="registrarVenda(event)">
+      <input type="text" id="nomeVenda" placeholder="Cliente" required />
+      <input type="text" id="produtoVenda" placeholder="Produto" required />
+      <input type="number" id="valorVenda" placeholder="Valor (R$)" required />
+      <button type="submit">Registrar Venda</button>
+    </form>
+    <ul id="listaVendas"></ul>
+  </section>
+  <section id="financeiro" style="display:none">
+    <h2>Controle Financeiro</h2>
+    <input type="number" id="valorDespesa" placeholder="Valor da Despesa (R$)" />
+    <button onclick="registrarDespesa()">Registrar Despesa</button>
+    <ul id="listaDespesas"></ul>
+    <p>Total de Vendas: R$ <span id="totalVendas">0</span></p>
+    <p>Total de Despesas: R$ <span id="totalDespesas">0</span></p>
+    <p><strong>Lucro Líquido: R$ <span id="lucro">0</span></strong></p>
+  </section>
+  <script src="script.js"></script>
+</body>
+</html>
